@@ -9,13 +9,13 @@
  "author": "Chris Coyne <ccoyne77@gmail.com>",
  "bin": "./bin/toffee",
  "dependencies": {
-  "coffee-script": "*",
+  "coffee-script": "1.6.3",
   "commander":     "*",
   "uglify-js":     "*",
   "mkdirp":        "*"
  },
  "devDependencies": {
-  "jison" :        "*",
+  "jison" :        "0.4.6",
   "zombie":        "*",
   "assert":        "*",
   "express": 	   "*"
