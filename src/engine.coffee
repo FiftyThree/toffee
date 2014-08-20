@@ -175,7 +175,8 @@ class engine
       view_options = @_generateViewOptions filename
       v = new view txt, view_options
       @viewCache[filename] = v
-      @_monitorForChanges filename, options
+      # # FIXME: Disable file watching due to memory leak:
+      # @_monitorForChanges filename, options
       return v
 
   _reloadFileInBkg: (filename, options) ->
@@ -223,7 +224,8 @@ class engine
         fsw = fs.watch filename, {persistent: true}, (change) =>
           @_log "#{filename} closing fs.watch()"
           fsw.close()
-          @_monitorForChanges filename, options
+          # # FIXME: Disable file watching due to memory leak:
+          # @_monitorForChanges filename, options
           @_reloadFileInBkg filename, options
       catch e
         @_log "fs.watch() failed for #{filename}; settings fsErrorCache = true"
